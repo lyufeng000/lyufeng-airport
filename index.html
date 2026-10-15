@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="网络加速服务，普通档与加量档，支持月付和年付。">
+  <meta name="color-scheme" content="light">
+  <title>网络加速服务</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      color: #172b29;
+      background: #f4f7f5;
+      font-synthesis: none;
+      line-height: 1.6;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    h1, h2, p { margin: 0; }
+    main {
+      inline-size: min(100% - 48px, 1000px);
+      margin-inline: auto;
+      padding-block: 64px 40px;
+    }
+
+    .intro { margin-block-end: 36px; }
+    .intro::before {
+      content: "";
+      display: block;
+      inline-size: 44px;
+      block-size: 5px;
+      margin-block-end: 20px;
+      border-radius: 10px;
+      background: #19735b;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+    }
+    .intro p { margin-block-start: 14px; font-size: 18px; color: #52665f; }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+    .plan {
+      min-inline-size: 0;
+      padding: 30px;
+      border: 1px solid #dce5df;
+      border-radius: 24px;
+      background: #ffffff;
+      box-shadow: 0 8px 28px rgb(23 43 41 / 4%);
+    }
+    .plan-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      min-block-size: 38px;
+    }
+    h2 { font-size: 24px; line-height: 1.4; }
+    .limited {
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: #fff2de;
+      color: #80501b;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .quota {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 10px;
+      margin-block: 22px 28px;
+    }
+    .quota strong {
+      font-size: clamp(2.75rem, 5vw, 3.5rem);
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+      font-weight: 750;
+    }
+    .quota span { font-size: 18px; color: #52665f; }
+    .payment {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 20px;
+      border: 1px solid #e1e7e3;
+      border-radius: 16px;
+    }
+    .payment + .payment { margin-block-start: 14px; }
+    .payment-title { font-size: 18px; font-weight: 650; }
+    .price { white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .amount { font-size: 34px; font-weight: 750; line-height: 1.25; }
+    .period { margin-inline-start: 6px; color: #52665f; font-size: 16px; }
+    .annual { border-color: #bdd8ca; background: #edf7f1; }
+    .annual .amount { color: #185b46; }
+    .recommend {
+      display: inline-block;
+      margin-inline-start: 6px;
+      padding: 2px 9px;
+      border-radius: 6px;
+      background: #216b52;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .saving { margin-block-start: 7px; color: #305e4c; font-size: 16px; }
+
+    .notes {
+      margin-block-start: 30px;
+      padding: 26px 30px;
+      border: 1px solid #dce5df;
+      border-radius: 20px;
+      background: #fafdfb;
+    }
+    .notes h2 { font-size: 20px; }
+    .notes ul {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 32px;
+      margin-block: 16px 0;
+      padding-inline-start: 22px;
+      color: #455b52;
+      font-size: 17px;
+    }
+    .notes li::marker { color: #19735b; }
+    .contact { padding-block-start: 36px; text-align: center; }
+    .contact h2 { font-size: 22px; }
+    .contact-info {
+      inline-size: fit-content;
+      max-inline-size: 100%;
+      margin: 14px auto 0;
+      padding: 10px 22px;
+      border: 1px dashed #9eb6a9;
+      border-radius: 10px;
+      color: #185b46;
+      font-size: 20px;
+      font-weight: 600;
+      overflow-wrap: anywhere;
+      user-select: all;
+    }
+
+    @media (max-width: 720px) {
+      main { inline-size: min(100% - 32px, 520px); padding-block: 36px 32px; }
+      .intro { margin-block-end: 26px; }
+      .plans, .notes ul { grid-template-columns: 1fr; }
+      .plans { gap: 20px; }
+      .plan { padding: 24px; border-radius: 20px; }
+      .payment { padding: 18px; }
+      .notes { padding: 24px; }
+      .contact h2 { font-size: 20px; }
+    }
+    @media (max-width: 360px) {
+      .plan { padding: 20px; }
+      .payment { padding: 16px; }
+      .amount { font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="intro">
+      <h1>网络加速服务</h1>
+      <p>两档流量，按需选择。</p>
+    </header>
+
+    <section class="plans" aria-label="服务方案">
+      <article class="plan" aria-labelledby="standard-title">
+        <div class="plan-header">
+          <h2 id="standard-title">普通档</h2>
+        </div>
+        <p class="quota"><strong>100GB</strong><span>每月流量</span></p>
+        <div class="payment">
+          <p class="payment-title">月付</p>
+          <p class="price"><span class="amount">9.9</span><span class="period">元 / 月</span></p>
+        </div>
+        <div class="payment annual">
+          <div>
+            <p class="payment-title">年付 <span class="recommend">推荐</span></p>
+            <p class="saving">比月付省约 20%</p>
+          </div>
+          <p class="price"><span class="amount">99</span><span class="period">元 / 年</span></p>
+        </div>
+      </article>
+
+      <article class="plan" aria-labelledby="plus-title">
+        <div class="plan-header">
+          <h2 id="plus-title">加量档</h2>
+          <span class="limited">名额仅 2 个</span>
+        </div>
+        <p class="quota"><strong>200GB</strong><span>每月流量</span></p>
+        <div class="payment">
+          <p class="payment-title">月付</p>
+          <p class="price"><span class="amount">16.9</span><span class="period">元 / 月</span></p>
+        </div>
+        <div class="payment annual">
+          <div>
+            <p class="payment-title">年付 <span class="recommend">推荐</span></p>
+            <p class="saving">比月付省约 20%</p>
+          </div>
+          <p class="price"><span class="amount">169</span><span class="period">元 / 年</span></p>
+        </div>
+      </article>
+    </section>
+
+    <section class="notes" aria-labelledby="notes-title">
+      <h2 id="notes-title">使用说明</h2>
+      <ul>
+        <li>流量每月固定日期重置</li>
+        <li>当月没用完的流量不累积</li>
+        <li>多台设备可以同时在线</li>
+        <li>总名额有限</li>
+      </ul>
+    </section>
+
+    <footer class="contact">
+      <h2>如需开通请直接联系我</h2>
+      <p class="contact-info">[联系方式]</p>
+    </footer>
+  </main>
+</body>
+</html>
